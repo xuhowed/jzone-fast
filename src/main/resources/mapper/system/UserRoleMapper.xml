@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jzone.module.system.user.mapper.UserRoleMapper">
+
+    <insert id="insertBatch">
+        INSERT INTO jz_sys_user_role (user_id, role_id, create_time, update_time, create_by, update_by) VALUES
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{userId}, #{roleId}, NOW(), NOW(), 'system', 'system')
+        </foreach>
+    </insert>
+
+</mapper>
